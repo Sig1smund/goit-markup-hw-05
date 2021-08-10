@@ -672,6 +672,10 @@ body button:active {
   border-radius: 4px;
 
   fill: rgba(175, 177, 184, 1);
+
+  transition-property: fill, background-color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
 
 .client:last-child {
@@ -683,6 +687,8 @@ body button:active {
   fill: var(--action-color);
   border-color: var(--action-color);
   background-color: var(--background-color);
+
+  transform: transition;
 }
 
 /*GALLERY*/
@@ -718,7 +724,7 @@ body button:active {
   padding-right: 0px;
 }
 
-.filter-buttons button {
+.filter-buttons .radiobutton {
   font-family: inherit;
   font-size: 16px;
   font-style: normal;
@@ -742,13 +748,22 @@ body button:active {
   background-color: rgba(245, 244, 250, 1);
 
   cursor: pointer;
+
+  transition-property: color, background-color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
 
-.filter-buttons button:active,
-.filter-buttons button:hover,
-.filter-buttons button:focus {
+.radiobutton:active,
+.radiobutton:hover,
+.radiobutton:focus {
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12),
     0px 1px 2px 0px rgba(0, 0, 0, 0.08), 0px 3px 1px 0px rgba(0, 0, 0, 0.1);
+
+  color: var(--background-color);
+  background-color: var(--action-color);
+
+  transform: transition;
 }
 
 .filter-btn:last-child {
@@ -778,6 +793,10 @@ body button:active {
   margin-bottom: 30px;
 
   border: 1px solid rgba(238, 238, 238, 1);
+
+  transition-property: background, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
 
 .project:nth-last-child(-n + 3) {
@@ -793,6 +812,8 @@ body button:active {
   background: rgba(255, 255, 255, 1);
   box-shadow: 1px 4px 6px 0px rgba(0, 0, 0, 0.16),
     0px 4px 4px 0px rgba(0, 0, 0, 0.06), 0px 1px 1px 0px rgba(0, 0, 0, 0.12);
+
+  transform: transition;
 }
 
 .title-container {
@@ -897,7 +918,7 @@ body button:active {
   padding-bottom: 9px;
 }
 
-.adress a {
+.adress .contacts-link {
   font-family: inherit;
   font-size: 14px;
   line-height: 1.5;
@@ -905,6 +926,17 @@ body button:active {
   text-align: left;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.6);
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
+}
+
+.contacts-link:hover,
+.contacts-link:focus {
+  color: var(--action-color);
+
+  transform: transition;
 }
 
 .social-footer {
@@ -961,14 +993,22 @@ body button:active {
   margin: 0px;
   width: 44px;
   height: 44px;
+
+  border-radius: 50%;
+
+  transition-property: fill, background-color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
 
 .social-footercontainer:last-child {
   margin-right: 0px;
 }
 
-.social-footercontainer:hover,
-.social-footercontainer:focus {
+.footerlink:hover,
+.footerlink:focus {
   fill: var(--background-color);
   background-color: var(--action-color);
+
+  transform: transition;
 }
