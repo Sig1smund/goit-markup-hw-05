@@ -152,7 +152,7 @@ body button:active {
   position: relative;
 }
 
-.nav-item .current-page {
+.nav-link.current {
   color: var(--action-color);
 }
 
@@ -749,7 +749,7 @@ body button:active {
 
   cursor: pointer;
 
-  transition-property: color, background-color;
+  transition-property: color, background-color, box-shadow;
   transition-duration: 250ms;
   transition-timing-function: var(--cubic);
 }
