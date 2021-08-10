@@ -829,7 +829,7 @@ body button:active {
   width: 370px;
   height: 294px;
 
-  background-color: var(--action-color);
+  background-color: rgba(33, 150, 243, 0.9);
 
   /* opacity: 0; */
 
