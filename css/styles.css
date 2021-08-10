@@ -3,6 +3,8 @@
   --secondary-text-color: #757575;
   --action-color: #2196f3;
   --background-color: #ffffff;
+
+  --cubic: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 *,
@@ -51,6 +53,8 @@ body button:focus,
 body button:active {
   background-color: var(--action-color);
   color: #ffffff;
+
+  transform: background-color;
 }
 
 /*HEADER*/
@@ -67,9 +71,11 @@ body button:active {
 
 /*NAVIGATION*/
 
-.navbar .nav-list a:hover,
-.navbar .nav-list a:focus {
+.nav-list .nav-link:hover,
+.nav-list .nav-link:focus {
   color: var(--action-color);
+
+  transform: transition;
 }
 
 .header .container {
@@ -110,10 +116,12 @@ body button:active {
 
 .nav-list {
   display: flex;
+
   margin-left: 95px;
   margin-top: 0px;
   margin-bottom: 0px;
   padding-left: 0px;
+
   color: var(--primary-text-color);
 }
 
@@ -129,11 +137,38 @@ body button:active {
   margin-right: 0px;
 }
 
-.navbar .nav-list a {
+.navbar .nav-link {
   font-size: 14px;
   line-height: 1.1;
   letter-spacing: 0.02em;
   font-weight: 500;
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
+}
+
+.nav-list .nav-item {
+  position: relative;
+}
+
+.nav-item .current-page {
+  color: var(--action-color);
+}
+
+.nav-item.current::after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  content: "";
+
+  width: 100%;
+  height: 4px;
+
+  background-color: var(--action-color);
+
+  border-radius: 4px;
 }
 
 .contacts-bar {
@@ -156,7 +191,7 @@ body button:active {
   margin-right: 0px;
 }
 
-.contacts-bar a {
+.contacts-bar .contacts-link {
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -167,11 +202,22 @@ body button:active {
   text-align: left;
   font-size: 14px;
   color: var(--secondary-text-color);
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
 
-.contacts-bar a:hover,
-.contacts-bar a:focus {
+.contacts-bar .contacts-link:hover,
+.contacts-bar .contacts-link:focus {
   color: var(--action-color);
+
+  transform: color;
+}
+
+.contacts-link:visited {
+  color: var(--secondary-text-color);
+  text-decoration: none;
 }
 
 .icon-envelope {
@@ -243,6 +289,74 @@ body button:active {
   padding-bottom: 10px;
 
   cursor: pointer;
+}
+
+/* MODAL */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.2);
+
+  opacity: 1;
+
+  transition-property: opacity;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.backdrop.is-hidden .modal {
+  transform: scale(0.5) translate(-50%, -50%);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  min-width: 528px;
+  min-height: 581px;
+
+  background-color: rgba(255, 255, 255, 1);
+
+  transform: scale(1) translate(-50%, -50%);
+
+  transition: transform 250ms var(--cubic);
+}
+
+.modal-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  padding: 0;
+
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  color: #000000;
+}
+
+.icon-close {
+  fill: currentColor;
 }
 
 /*ADVANTAGES*/
@@ -326,11 +440,40 @@ body button:active {
 }
 
 .examples-list > .item {
+  position: relative;
+  height: 294px;
+
   margin-right: 30px;
 }
 
 .examples-list .item:nth-child(3) {
   margin-right: 0px;
+}
+
+.item .item-discription {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 70px;
+
+  margin: 0;
+  padding: 0;
+  padding-top: 27px;
+
+  z-index: 2;
+
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.03em;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: var(--background-color);
+  background-color: rgba(47, 48, 58, 0.8);
 }
 
 /*TEAM*/
@@ -455,16 +598,22 @@ body button:active {
   border-radius: 50%;
 
   fill: rgba(175, 177, 184, 1);
+
+  transition-property: fill, background-color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--cubic);
 }
 
 .link-item:last-child {
   margin-right: 0px;
 }
 
-.social-links a:hover,
-.social-links a:focus {
+.social-links .link-social:hover,
+.social-links .link-social:focus {
   fill: var(--background-color);
   background-color: var(--action-color);
+
+  transform: transition;
 }
 
 /*CLIENTS*/
