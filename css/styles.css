@@ -432,11 +432,11 @@ body button:active {
 .examples-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 
   margin-top: 0;
   margin-bottom: 0;
   padding: 0;
-  justify-content: center;
 }
 
 .examples-list > .item {
@@ -455,12 +455,15 @@ body button:active {
   left: 0;
   bottom: 0;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 100%;
   height: 70px;
 
   margin: 0;
   padding: 0;
-  padding-top: 27px;
 
   z-index: 2;
 
@@ -826,15 +829,15 @@ body button:active {
   top: 0;
   left: 0;
 
-  width: 370px;
-  height: 294px;
+  width: 100%;
+  height: 100%;
 
   background-color: rgba(33, 150, 243, 0.9);
 
-  /* opacity: 0; */
+  opacity: 0;
 
-  transform: translateY(+100%);
-  transition: transform 250ms var(--cubic);
+  transform: translateY(100%);
+  transition: transform 250ms var(--cubic), opacity 250ms var(--cubic);
 }
 
 .overlay-text {
@@ -857,6 +860,7 @@ body button:active {
 
 .project:hover .project-overlay {
   transform: translateY(0);
+  opacity: 1;
 }
 
 .title-container {
