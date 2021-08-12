@@ -831,6 +831,10 @@ body button:active {
   overflow: hidden;
 }
 
+.project-thumb > img {
+  display: block;
+}
+
 .project-overlay {
   position: absolute;
   top: 0;
@@ -865,7 +869,8 @@ body button:active {
   color: var(--background-color);
 }
 
-.project:hover .project-overlay {
+.project:hover .project-overlay,
+.project:focus .project-overlay {
   transform: translateY(0);
   opacity: 1;
 }
@@ -879,6 +884,8 @@ body button:active {
 }
 
 .gallery .filter {
+  display: block;
+
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
